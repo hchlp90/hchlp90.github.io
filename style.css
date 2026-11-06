@@ -135,15 +135,15 @@ html[lang="en"] h2, html[lang="en"] .game h3, html[lang="en"] .app h3 { letter-s
 
 /* 숫자 줄 */
 .facts {
-  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 2fr);
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 1.7fr);
   margin: 0; padding: 0 var(--gut); border-block: 1px solid var(--line); background: var(--bg2);
 }
-.facts__item { padding: 22px 28px; display: flex; align-items: baseline; gap: 12px; }
+.facts__item { padding: 22px 24px; display: flex; flex-direction: column; gap: 6px; }
 .facts__item:first-child { padding-left: 0; }
 .facts__item + .facts__item { border-left: 1px solid var(--line); }
 .facts dd { margin: 0; display: flex; align-items: center; gap: 8px; font: 700 28px/1 var(--tech); }
-.facts dt { font-size: 14px; color: var(--muted); }
-.facts__item--now dd { font-size: 15px; letter-spacing: .1em; color: var(--accent); }
+.facts dt { font-size: 14px; line-height: 1.4; color: var(--muted); }
+.facts__item--now dd { font-size: 15px; line-height: 28px; letter-spacing: .1em; color: var(--accent); }
 .now__dot { width: 8px; height: 8px; background: var(--accent); animation: blink 2.4s ease-in-out infinite; }
 @keyframes blink { 50% { opacity: .2; } }
 
@@ -410,7 +410,7 @@ html[lang="en"] .game--wq h3 small { display: none; }
 /* ── 링크 ── */
 .section--links { overflow: hidden; padding-bottom: 300px; }
 .section--links > :not(.keys) { position: relative; z-index: 1; }
-.links { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 10px; }
+.links { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 10px; }
 .links a {
   position: relative; display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 14px;
   align-items: center; padding: 16px 18px; border-radius: var(--r);
@@ -444,8 +444,8 @@ html[lang="en"] .game--wq h3 small { display: none; }
 @media (max-width: 1040px) {
   .hero__inner { grid-template-columns: 1fr; gap: 18px; padding-bottom: 88px; }
   .hero__lead { max-width: 620px; }
-  .facts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .facts__item { flex-direction: column; gap: 4px; padding: 18px 20px; }
+  .facts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .facts__item { gap: 4px; padding: 18px 20px; }
   .facts__item--now { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 12px; padding: 14px 0; border-left: 0 !important; border-top: 1px solid var(--line); }
   .apps { grid-template-columns: 1fr; }
   .app.app--wide { grid-template-columns: 1fr; }
@@ -477,8 +477,10 @@ html[lang="en"] .game--wq h3 small { display: none; }
   .kicker { font-size: 12px; letter-spacing: .1em; margin-bottom: 10px; }
   .hero__lead { font-size: 16px; }
   .chroma { gap: 8px; }
-  .facts { padding: 0 20px; }
-  .facts__item { padding: 16px 12px; }
+  .facts { padding: 0 20px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .facts__item { padding: 14px 14px; }
+  .facts__item:nth-child(odd) { padding-left: 0; border-left: 0; }
+  .facts__item:nth-child(n+3) { border-top: 1px solid var(--line); }
   .facts dt { font-size: 13px; line-height: 1.35; }
   .section { padding-top: 72px; padding-bottom: 72px; }
   .section--col { padding-top: 60px; }
